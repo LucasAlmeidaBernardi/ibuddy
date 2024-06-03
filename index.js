@@ -13,7 +13,7 @@ const app = express();
 
 // Configurando o express-session
 app.use(session({
-    secret: "lojasecret",
+    secret: "ibuddy",
     cookie: { maxAge: 3600000 },
     saveUninitialized: false,
     resave: false
@@ -25,7 +25,7 @@ app.use(express.json());
 app.locals.moment = moment;
 
 // Iniciando conexão com o banco de dados do MongoDB
-mongoose.connect("mongodb://localhost:27017/loja", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb://localhost:27017/ibuddy", { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Define o EJS como renderizador de páginas
 app.set('view engine', 'ejs');
