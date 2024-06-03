@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Imagem</title>
+    <link rel="stylesheet" href="/css/forms.css">
+</head>
+
+<body>
+    <div class="container-form">
+        <h2>Enviar Imagem</h2>
+        <form class="formaa" action="/uploads" method="POST" enctype="multipart/form-data">
+            <div class="inscricaoa">
+                <label class="labelimg" for="imagem">Selecione uma imagem</label>
+                <div class="inscricaoa">
+                <input class="imgsend" type="file" id="imagem" name="imagem" accept="image/*" required>
+            </div>
+        </div>
+
+                <button type="submit">Enviar</button>
+
+        </form>
+    <a href="/perfil">Voltar</a>
+
+    </div>
+</body>
+
+</html>

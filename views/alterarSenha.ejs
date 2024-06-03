@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Alterar Senha</title>
+    <link rel="stylesheet" href="/css/forms.css">
+</head>
+<body>
+    <div class="containerlog">
+    <h1>Alterar Senha</h1>
+    <form class="formularios senhas" action="/alterarSenha" method="post">
+        <div class="inscricao">
+            <label for="senhaAtual">Senha Atual:</label>
+            <input type="password" id="senhaAtual" name="senhaAtual" required>
+        </div>
+        <div class="inscricao">
+            <label for="novaSenha">Nova Senha:</label>
+            <input type="password" id="novaSenha" name="novaSenha" required>
+        </div>
+        <button type="submit">Alterar Senha</button>
+    </form>
+    <a href="/home">Voltar</a>
+    </div>
+</body>
+</html>

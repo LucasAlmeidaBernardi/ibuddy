@@ -1,0 +1,76 @@
+
+<nav class="sidebar close">
+  <header>
+      <div class="image-text">
+          <span class="image">
+            <img src="/uploads/ibuddysvg.svg" href="/" alt="iBuddy">
+          </span>
+
+          <div class="text logo-text">
+            <span class="name">iBuddy</span>
+            <% if (user) { %>
+                <span class="profession">Olá, <%= user.nome %></span>
+            <% } else { %>
+                <span class="profession">Usuário desconhecido</span>
+            <% } %>
+        </div>
+      </div>
+
+      <i class='bx bx-chevron-right toggle'></i>
+  </header>
+
+  <div class="menu-bar">
+      <div class="menu">
+
+
+          <ul class="menu-links">
+              <li class="nav-link">
+                  <a href="/home">
+                      <i class='bx bx-home-alt icon' ></i>
+                      <span class="text nav-text">Home</span>
+                  </a>
+              </li>
+
+              <li class="nav-link">
+                  <a href="/perfil">
+                      <i class='bx bx-user-circle icon' ></i>
+                      <span class="text nav-text">Perfil</span>
+                  </a>
+              </li>
+
+              <li class="nav-link">
+                  <a href="/cachorros">
+                      <i class='bx bxs-dog icon'></i>
+                      <span class="text nav-text">Cachorros</span>
+                  </a>
+              </li>
+
+          </ul>
+      </div>
+
+      <div class="bottom-content">
+          <li class="">
+              <a href="/logout">
+                  <i class='bx bx-log-out icon' ></i>
+                  <span class="text nav-text">Logout</span>
+              </a>
+          </li>
+          
+      </div>
+  </div>
+
+</nav>
+
+
+
+<script>
+  const body = document.querySelector('body'),
+sidebar = body.querySelector('nav'),
+toggle = body.querySelector(".toggle");
+
+
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close")
+})
+</script>

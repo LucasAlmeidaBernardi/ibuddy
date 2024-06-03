@@ -1,0 +1,143 @@
+.botao-p button {
+    position: absolute;
+    right: 20px; /* Posiciona o botão à direita */
+    top: 20px; /* Distância de 20px do topo do contêiner pai */
+    padding: 10px 20px;
+    width: 200px;
+    height: 70px;
+    border: 0;
+    background-color: #7878ff;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    border-radius: 8px;
+    transition: background-color 150ms ease-in-out;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.ima {
+    display: flex; /* Adiciona display flex */
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Alinha horizontalmente */
+    overflow: hidden;
+    width: 270px;
+    height: 270px;
+    border-radius: 100vh;
+    position: relative; /* Adiciona posição relativa para os filhos absolutos */
+}
+
+.ima img {
+    position: absolute; /* Adiciona posição absoluta */
+    width: 100%; /* Largura 100% para preencher a div pai */
+    height: 100%; /* Altura 100% para preencher a div pai */
+    object-fit: cover;
+}
+
+.botoes button:hover {
+    cursor: pointer;
+    background-color: #4b4ba5;
+}
+
+.divh1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+h1 {
+    width: auto;
+    padding: 0 20px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #333;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cartoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cartao {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.2s;
+}
+
+.cartao:hover {
+    transform: scale(1.05);
+}
+
+.cartao-corpo {
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+#imagem {
+    width: 100%;
+    object-fit: cover;
+    align-self: center;
+    justify-self: center;
+}
+
+.cachorro-box {
+    padding: 10px 0;
+}
+
+.cachorro-box p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.card-botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.card-botoes a {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.card-botoes a:first-child {
+    margin-right: 5px;
+    background-color: #007BFF;
+}
+
+.card-botoes a:last-child {
+    margin-left: 5px;
+    background-color: #28A745;
+}
+
+.card-botoes a:hover {
+    opacity: 0.8;
+}

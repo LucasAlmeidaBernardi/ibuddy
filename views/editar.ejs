@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuário</title>
+    <link rel="stylesheet" href="/css/forms.css">
+</head>
+<body>
+    <div class="container-form">
+    <h2>Editar Usuário</h2>
+    <form class="formularios" action="/editar/<%= user.id %>" method="POST">
+        <div class="inscricao">
+            <label>E-mail:</label>
+            <input type="email" name="email" value="<%= user.email %>" required>
+        </div>
+        <div class="inscricao">
+            <label>Nome:</label>
+            <input type="text" name="nome" value="<%= user.nome %>" required>
+        </div>
+        <div class="inscricao">
+            <label>Sobrenome:</label>
+            <input type="text" name="sobrenome" value="<%= user.sobrenome %>" required>
+        </div>
+        <div class="inscricao">
+            <label>Data de Nascimento:</label>
+            <input type="date" name="dataNascimento" value="<%= user.dataNascimento %>" required>
+        </div>
+        <div class="inscricao">
+            <label>Região:</label>
+            <input type="text" name="regiao" value="<%= user.regiao %>" required>
+        </div>
+        <div class="inscricao">
+            <label>Telefone:</label>
+            <input type="text" name="telefone" value="<%= user.telefone %>" required>
+        </div>
+
+            <button type="submit">Salvar</button>
+            
+
+    </form>
+    <a href="/perfil">Voltar</a>
+    </div>
+</body>
+</html>

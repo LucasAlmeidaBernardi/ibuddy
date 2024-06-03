@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/perfil.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <%- include ('initials/navbar.ejs') %>
+        <div class="home">
+            <div class="p-container">
+                <div class="perfil ">
+                    <h1>Perfil do Usuário</h1>
+                    <ul class="img">
+                        <div class="ima">
+                            <img class="imagemp" id="imagem" src="uploads/profilep.png" alt="Imagem do Usuário">
+                        </div>
+                        <button class="botao-r" onclick="rotacionarImagem()">Rotacionar</button>
+                        <style>
+                            #imagem {
+
+                                transition: .7s cubic-bezier(0.075, 0.82, 0.165, 1);
+                            }
+                        </style>
+
+                        <script>
+                            let angulo = 0;
+
+                            function rotacionarImagem() {
+                                angulo += 90; // Rotaciona 90 graus a cada clique
+                                const radianos = angulo * Math.PI / 180;
+                                const cos = Math.cos(radianos);
+                                const sin = Math.sin(radianos);
+
+                                // Matriz de rotação para transformar a imagem
+                                const transformMatrix = `matrix(${cos}, ${sin}, ${-sin}, ${cos}, 0, 0)`;
+
+                                document.getElementById('imagem').style.transform = transformMatrix;
+                            }
+                        </script>
+
+                        <li class="li-p"><strong>Nome:</strong>
+                            <%= user.nome %>
+                        </li>
+                        <li class="li-p"><strong>Sobrenome:</strong>
+                            <%= user.sobrenome %>
+                        </li>
+                        <li class="li-p"><strong>Email:</strong>
+                            <%= user.email %>
+                        </li>
+                        <li class="li-p"><strong>Data de Nascimento:</strong>
+                            <%= moment(user.dataNascimento).format('DD/MM/YYYY') %>
+                        </li>
+                        <li class="li-p"><strong>Região:</strong>
+                            <%= user.regiao %>
+                        </li>
+                        <li class="li-p"><strong>Telefone:</strong>
+                            <%= user.telefone %>
+                        </li>
+                    </ul>
+
+                    <!-- Botões de Ação -->
+                    <div class="botoes">
+                        <form class="botao-p" action="/editar" method="GET">
+                            <button type="submit">Editar Perfil</button>
+                        </form>
+                        <form class="botao-p" action="/alterarSenha" method="GET">
+                            <button type="submit">Alterar Senha</button>
+                        </form>
+                        <form class="botao-p" action="/uploads" method="GET">
+                            <button type="submit">Alterar imagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

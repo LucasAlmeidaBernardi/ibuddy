@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cachorros</title>
+    <link rel="stylesheet" href="/css/cachorrolist.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <%- include('initials/navbar.ejs', { user: user }) %>
+    <div class="home">
+        <form class="botao-p" action="/cachorros/new" method="GET">
+            <button type="submit">Cadastrar Novo Cachorro</button>
+        </form>
+        <div class="divh1">
+        <h1>Lista de Cachorros</h1>
+    </div>
+        <div class="cartoes">
+            <% cachorros.forEach(cachorro => { %>
+            <div class="cartao">
+                <div class="cartao-corpo">
+                    <div class="ima">
+                        <img class="imagemp" id="imagem" src="uploads/dogcc.png" alt="Imagem do Usuário">
+                    </div>
+                    <div class="cachorro-box">
+                        <p>Nome: <%= cachorro.nome %></p>
+                        <p>Sobrenome: <%= cachorro.sobrenome %></p>
+                        <p>Idade: <%= cachorro.idade %> anos</p>
+                        <div class="card-botoes">
+                            <a  href="/cachorros/profile/<%= cachorro._id %>">Ver Perfil</a>
+                            <a  href="/cachorros/edit/<%= cachorro._id %>">Editar Dados</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+
+</html>

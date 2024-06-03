@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/forms.css">
+</head>
+<body>
+    <div class="formularios">
+        <div class="containerlog">
+            <div class="form-header">
+                <h2>Login de administrador</h2>
+            </div>
+                <form class="formularioslog" action="/authenticate" method="POST">
+                    <div class="inscricao">       
+                        <label>E-mail</label>
+                        <input type="email" class="form-control" name="email" placeholder="email@exemplo.com" required>
+                    </div>
+                    <div class="inscricao">
+                        <label>Senha:</label>
+                        <input type="password" class="form-control" name="password" placeholder="Insira sua senha" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Entrar</button>
+                </form>
+
+                <h6>Não possui conta? <a href="/cadastro">Cadastre-se</a></h6>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Cachorro</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/perfilca.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <%- include('initials/navbar.ejs', { user: user }) %>
+        <div class="home">
+            <div class="centro">
+                <div class="containerm">
+                    <div class="p-container">
+                        <div class="perfil ">
+                            <h1>Perfil do Cachorro</h1>
+                            <ul class="img">
+                                <div class="ima">
+                                    <img class="imagemp" id="imagem" src="/uploads/dogcc.png" alt="Imagem do Cachorro">
+                                </div>
+                                <% if (cachorro.nome) { %>
+                                    <li class="li-p"><strong>Nome:</strong>
+                                        <%= cachorro.nome %>
+                                    </li>
+                                    <% } %>
+                                        <% if (cachorro.sobrenome) { %>
+                                            <li class="li-p"><strong>Sobrenome:</strong>
+                                                <%= cachorro.sobrenome %>
+                                            </li>
+                                            <% } %>
+                                                <% if (cachorro.idade) { %>
+                                                    <li class="li-p"><strong>Idade:</strong>
+                                                        <%= cachorro.idade %> anos
+                                                    </li>
+                                                    <% } %>
+                                                        <% if (cachorro.peso) { %>
+                                                            <li class="li-p"><strong>Peso:</strong>
+                                                                <%= cachorro.peso %> kg
+                                                            </li>
+                                                            <% } %>
+                                                                <% if (cachorro.altura) { %>
+                                                                    <li class="li-p"><strong>Altura:</strong>
+                                                                        <%= cachorro.altura %> cm
+                                                                    </li>
+                                                                    <% } %>
+                                                                        <% if (cachorro.raca) { %>
+                                                                            <li class="li-p"><strong>Raça:</strong>
+                                                                                <%= cachorro.raca %>
+                                                                            </li>
+                                                                            <% } %>
+                                                                                <% if (cachorro.dataNascimento) { %>
+                                                                                    <li class="li-p"><strong>Data de
+                                                                                            Nascimento:</strong>
+                                                                                        <%= moment(cachorro.dataNascimento).format('DD/MM/YYYY')
+                                                                                            %>
+                                                                                    </li>
+                                                                                    <% } %>
+                                                                                        <% if (cachorro.sexo) { %>
+                                                                                            <li class="li-p">
+                                                                                                <strong>Sexo:</strong>
+                                                                                                <%= cachorro.sexo %>
+                                                                                            </li>
+                                                                                            <% } %>
+                                                                                                <% if (cachorro.origem)
+                                                                                                    { %>
+                                                                                                    <li class="li-p">
+                                                                                                        <strong>Origem:</strong>
+                                                                                                        <%= cachorro.origem
+                                                                                                            %>
+                                                                                                    </li>
+                                                                                                    <% } %>
+                            </ul>
+                            <div class="botoes">
+                                <form class="botao-p" action="/cachorros/edit/<%= cachorro._id %>" method="GET">
+                                    <button type="submit">Editar Cachorro</button>
+                                </form>
+                                <form class="botao-p" action="/cachorros/delete/<%= cachorro._id %>" method="POST"
+                                    onsubmit="return confirm('Tem certeza que deseja excluir este cachorro?');">
+                                    <button type="submit">Excluir Cachorro</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="bpmChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="sleepChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="exerciseChart"></canvas>
+                    </div>
+                    <div id="map"></div>
+
+                </div>
+            </div>
+        </div>
+
+</body>
+<script>
+    // Função para gerar dados aleatórios
+    function generateRandomData(numPoints, min, max) {
+        return Array.from({ length: numPoints }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+    }
+
+    // Labels e dados
+    const labels = Array.from({ length: 10 }, (_, i) => `Dia ${i + 1}`);
+    const bpmData = generateRandomData(10, 60, 120);
+    const sleepData = generateRandomData(10, 6, 12);
+    const exerciseData = generateRandomData(10, 30, 120);
+
+    // Configuração e criação dos gráficos
+    const bpmChart = new Chart(document.getElementById('bpmChart'), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'BPM',
+                data: bpmData,
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                fill: false,
+            }]
+        },
+        options: {
+            maintainAspectRatio: false
+        }
+    });
+
+    const sleepChart = new Chart(document.getElementById('sleepChart'), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Sleep (hours)',
+                data: sleepData,
+                borderColor: 'rgb(54, 162, 235)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                fill: false,
+            }]
+        },
+        options: {
+            maintainAspectRatio: false
+        }
+    });
+
+    const exerciseChart = new Chart(document.getElementById('exerciseChart'), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Exercise (minutes)',
+                data: exerciseData,
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                fill: false,
+            }]
+        },
+        options: {
+            maintainAspectRatio: false
+        }
+    });
+
+    // Configuração do mapa
+    const map = L.map('map').setView([-23.55052, -46.633308], 13); // Coordenadas de São Paulo como exemplo
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Adicionar marcador ao mapa
+    L.marker([-23.55052, -46.633308]).addTo(map)
+        .bindPopup('Localização Fictícia')
+        .openPopup();
+</script>
+
+</html>

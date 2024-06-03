@@ -1,0 +1,96 @@
+img {
+    max-width: 100%;
+    display: block;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.imagemp {
+    width: 250px;
+
+}
+
+.p-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.perfil {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: rgb(255, 255, 255);
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.041);
+}
+
+.ima {
+    overflow: hidden;
+    align-self: center;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 100vh;
+}
+
+.img {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    width: 100%;
+}
+
+
+
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px;
+
+}
+
+.botao-p {
+    flex: 1;
+
+
+}
+
+.img button {
+    margin-block: 20px;
+}
+
+.botao-p button,
+.img button {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background-color: #7878ff;
+    padding-block: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    border-radius: 8px;
+
+    transition: background-color 150ms ease-in-out;
+}
+
+.botoes button:hover {
+    cursor: pointer;
+    background-color: #4b4ba5;
+}
+.img .botao-r{
+    height: auto;
+}

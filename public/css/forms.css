@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Roboto";
+}
+.container-form, .containerlog{
+    display: flex;
+    width: 800px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.26);
+}
+.container-form, .containerlog{
+     animation: fadeIn 0.6s; 
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+.containerlog{
+    width: 500px;
+}
+.formularios {
+    display: grid;
+    flex-wrap: wrap;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.formularioslog {
+    display: grid;
+    flex-wrap: wrap;
+    gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+.inscricao{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.inscricaoa{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 5px;
+}
+.inscricaoa input{
+    padding: 15px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    
+}
+.o{
+    grid-column: 1/-1;
+}
+
+.inscricao input, select{
+    padding: 15px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    
+}
+
+.formularios button{
+    grid-column: 1/-1;
+    padding-block: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    border: 0;
+    background-color: #7878ff;
+    color: #ffffff;
+    border-radius: 8px;
+    transition: background-color 150ms ease-in-out;
+}
+
+.formularios button:hover{
+    cursor: pointer;
+    background-color: #4b4ba5;
+}
+.formaa button{
+    margin-top: 10px;
+    width: 100%;
+    padding-block: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    border: 0;
+    background-color: #7878ff;
+    color: #ffffff;
+    border-radius: 8px;
+    transition: background-color 150ms ease-in-out;
+}
+
+.formaa button:hover{
+    cursor: pointer;
+    background-color: #4b4ba5;
+}
+.formularioslog button{
+    grid-column: auto;
+}
+
+.container-form a, .containerlog a{
+    color: black;
+}
+
+
+.senhas {
+    grid-template-columns: 1fr;
+}
+
+.imgsend{
+    border: none;
+    width: 100%;
+    background-color: #4b4ba5;
+}
+input[type="file"] {
+    display: none;
+}
+
+.labelimg{
+        margin-top: 10px;
+        width: 100%;
+        padding-block: 10px;
+        font-size: 22px;
+        font-weight: 700;
+        border: 0;
+        background-color: #7878ff;
+        color: #ffffff;
+        border-radius: 8px;
+        transition: background-color 150ms ease-in-out;
+        text-align: center;
+
+}
+
+.labelimg:hover{
+    cursor: pointer;
+    background-color: #4b4ba5;
+}

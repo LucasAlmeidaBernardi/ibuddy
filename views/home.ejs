@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <title>iBuddy</title>
+    <style>
+        #countdown {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const userName = "<%= user.nome %>";
+            const targetDate = new Date('November 30, 2024 23:59:59');
+
+            function calculateCountdown() {
+                const now = new Date();
+                const distance = targetDate - now;
+
+                const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
+                const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                document.getElementById('countdown').innerHTML = `Olá ${userName}, faltam ${months} meses ${days} dias ${hours} horas para acabar seu plano da smart coleira`;
+            }
+
+            calculateCountdown(); // Mostra o countdown instantaneamente
+
+            setInterval(calculateCountdown, 3600000); // Atualiza a cada hora
+        });
+        /* teste*/
+    </script>
+</head>
+
+<body>
+    <%- include ('initials/navbar.ejs') %>
+        <div class="p-container">
+        <main id="main">
+            <div class="perfil ">
+                <div id="countdown"></div>
+                <p>Foto da coleira</p>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
