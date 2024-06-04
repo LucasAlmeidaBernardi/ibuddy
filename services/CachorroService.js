@@ -12,12 +12,12 @@ const CachorroService = {
             dataNascimento,
             sexo,
             origem,
-            user: userId  // Associa o cachorro ao usuário
+            user: userId  
         });
         return await cachorro.save();
     },
     SelectAll: async (userId) => {
-        return await Cachorro.find({ user: userId });  // Busca cachorros pelo usuário
+        return await Cachorro.find({ user: userId }); 
     },
     SelectOne: async (id) => {
         return await Cachorro.findById(id);

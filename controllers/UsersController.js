@@ -4,20 +4,20 @@ import UserService from "../services/UserService.js";
 import Auth from "../middleware/Auth.js"; 
 const router = express.Router();
 
-// ROTA DE LOGIN
+
 router.get("/login", (req, res) => {
     res.render("login", {
         loggedOut: true
     });
 });
 
-// ROTA DE LOGOUT
+
 router.get("/logout", (req, res) => {
     req.session.user = undefined;
     res.redirect("/");
 });
 
-// ROTA DE AUTENTICAÇÃO
+
 router.post("/authenticate", async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -27,7 +27,7 @@ router.post("/authenticate", async (req, res) => {
             const correct = bcrypt.compareSync(password, user.password);
             if (correct) {
                 req.session.user = {
-                    id: user._id.toString(), // Convertendo para string para garantir compatibilidade
+                    id: user._id.toString(), 
                     email: user.email,
                     nome: user.nome,
                     sobrenome: user.sobrenome,
@@ -48,18 +48,17 @@ router.post("/authenticate", async (req, res) => {
     }
 });
 
-// ROTA DE CADASTRO
 router.get("/cadastro", (req, res) => {
     res.render("cadastro", {
         loggedOut: true
     });
 });
 
-// ROTA DE CRIAÇÃO DE USUÁRIO NO BANCO
+
 router.post("/createUser", (req, res) => {
     const { email, password, nome, sobrenome, dataNascimento, regiao, telefone } = req.body;
 
-    console.log("Received data:", req.body);  // Verifica se os dados estão sendo recebidos
+    console.log("Received data:", req.body);  
 
     if (!password) {
         return res.status(400).send("Senha é obrigatória.");
@@ -86,7 +85,7 @@ router.post("/createUser", (req, res) => {
         });
 });
 
-// ROTA DE EDIÇÃO (EXIBIR FORMULÁRIO)
+
 router.get("/editar/:id", (req, res) => {
     const userId = req.params.id;
     UserService.SelectById(userId)
@@ -103,7 +102,7 @@ router.get("/editar/:id", (req, res) => {
         });
 });
 
-// ROTA DE EDIÇÃO (ATUALIZAR DADOS)
+
 router.post("/editar/:id", (req, res) => {
     const userId = req.params.id;
     const { email, nome, sobrenome, dataNascimento, regiao, telefone } = req.body;
@@ -157,7 +156,7 @@ router.get("/perfil", Auth, async (req, res) => {
     }
 });
 router.get('/cachorros', Auth, (req, res) => {
-    const user = req.user; // Pegando o usuário autenticado a partir do middleware
+    const user = req.user; 
     res.render('cachorros', { user });
 });
 export default router;

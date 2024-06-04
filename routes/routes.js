@@ -1,5 +1,5 @@
 import express from "express";
-import upload from "../multer.js"; // Corrigindo o caminho de importação para multer.js
+import upload from "../multer.js"; 
 import * as PictureController from "../controllers/pictureController.js";
 
 const router = express.Router();

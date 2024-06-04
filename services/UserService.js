@@ -1,4 +1,4 @@
-import User from "../models/User.js"; // Ajuste conforme necessário
+import User from "../models/User.js"; 
 
 class UserService {
     static async SelectOne(email) {
@@ -8,7 +8,7 @@ class UserService {
     static async SelectById(id) {
         try {
             const user = await User.findById(id);
-            console.log("User found:", user); // Log para verificar se os dados estão sendo recuperados
+            console.log("User found:", user); 
             return user;
         } catch (error) {
             console.error("Erro ao buscar usuário por ID:", error);

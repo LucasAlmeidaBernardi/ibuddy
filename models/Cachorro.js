@@ -10,7 +10,7 @@ const CachorroSchema = new mongoose.Schema({
     dataNascimento: { type: Date, required: false },
     sexo: { type: String, enum: ['femea', 'macho'], required: true },
     origem: { type: String, required: false },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }  // Adiciona referência ao usuário
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }  
 });
 
 const Cachorro = mongoose.model('Cachorro', CachorroSchema);

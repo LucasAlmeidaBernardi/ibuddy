@@ -11,7 +11,7 @@ const pictureSchema = new mongoose.Schema({
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // Referência ao modelo de usuário
+    ref: 'User', 
     required: true
   }
 });

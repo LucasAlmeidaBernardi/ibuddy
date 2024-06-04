@@ -1,5 +1,5 @@
 import express from "express";
-import Picture from "../models/Picture.js"; // Importe o modelo Picture
+import Picture from "../models/Picture.js";
 
 const router = express.Router();
 
@@ -7,17 +7,17 @@ export async function save(req, res) {
     try {
         const { name, src, user } = req.body;
 
-        // Crie uma nova instância do modelo Picture com os dados recebidos
+      
         const picture = new Picture({
             name,
             src,
             user
         });
 
-        // Salve a nova imagem no banco de dados
+      
         const savedPicture = await picture.save();
 
-        res.status(201).json(savedPicture); // Retorna a imagem salva como resposta
+        res.status(201).json(savedPicture); 
     } catch (error) {
         console.error("Erro ao salvar a imagem:", error);
         res.status(500).json({ message: "Erro ao salvar a imagem" });

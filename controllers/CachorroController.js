@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.get("/cachorros", Auth, async (req, res) => {
     try {
-        const cachorros = await CachorroService.SelectAll(req.session.user.id);  // Filtra pelo usuário
-        const user = req.session.user; // Adiciona o objeto de usuário à variável user
-        res.render("cachorros", { user, cachorros }); // Passa user e cachorros como objetos para o template
+        const cachorros = await CachorroService.SelectAll(req.session.user.id); 
+        const user = req.session.user; 
+        res.render("cachorros", { user, cachorros }); 
     } catch (err) {
         console.log(err);
         res.status(500).send("Erro ao buscar cachorros");
@@ -31,7 +31,7 @@ router.post("/cachorros/new", Auth, async (req, res) => {
             req.body.dataNascimento,
             req.body.sexo,
             req.body.origem,
-            req.session.user.id  // Passa o ID do usuário
+            req.session.user.id  
         );
         res.redirect("/cachorros");
     } catch (err) {
